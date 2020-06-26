@@ -10,6 +10,7 @@
   "dependencies": {
     "@babel/preset-env": "^7.10.0",
     "@babel/preset-react": "^7.10.0",
+    "@zeit/next-stylus": "^1.0.1",
     "babel-eslint": "^10.1.0",
     "babel-jest": "^26.0.1",
     "eslint": "^7.3.1",
@@ -22,6 +23,6 @@
     "prettier": "^2.0.5",
     "react": "16.13.1",
     "react-dom": "16.13.1",
-    "sass": "^1.26.9"
+    "stylus": "^0.54.7"
   }
 }
