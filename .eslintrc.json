@@ -19,12 +19,12 @@
       "destructuring": true,
       "spread": true,
       "experimentalObjectRestSpread": true
-    },
-    "env": {
-      "browser": true,
-      "es6": true,
-      "node": true,
-      "jest": true
     }
+  },
+  "env": {
+    "browser": true,
+    "es6": true,
+    "node": true,
+    "jest": true
   }
 }
