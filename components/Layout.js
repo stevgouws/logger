@@ -1,8 +1,8 @@
 import PropTypes from "prop-types";
-import { styles } from "./layout.styl";
+import { main } from "./layout.styl";
 
 const Layout = ({ children }) => {
-  return <main className={styles}>{children}</main>;
+  return <main className={main}>{children}</main>;
 };
 
 Layout.propTypes = {
