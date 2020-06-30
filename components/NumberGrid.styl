@@ -1,0 +1,14 @@
+@import '../styles/variables.styl'
+
+.numberGrid
+  display grid
+  grid-template-columns repeat(10, 1fr)
+
+  .number
+    background-color $pink
+    color $white
+    display flex
+    align-items center
+    justify-content center
+    padding $space-2
+    border solid 1px $white
