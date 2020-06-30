@@ -12,6 +12,7 @@ export default function Home() {
       <Head>
         <title>Logger</title>
         <link rel="icon" href="/chart.svg" />
+        <link rel="manifest" href="manifest.json" />
       </Head>
       <Layout>
         <h1>Neck</h1>
