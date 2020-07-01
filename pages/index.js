@@ -14,7 +14,13 @@ export default function Home() {
         <link rel="icon" href="/chart.svg" />
         <link rel="manifest" href="/manifest.json" />
         <link rel="apple-touch-icon" sizes="180x180" href="/icon-180x180.png" />
-        <link href="/start-up.png" rel="apple-touch-startup-image" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        {/* <!-- iPhone 8, 7, 6s, 6 (750px x 1334px) -->  */}
+        <link
+          rel="apple-touch-startup-image"
+          media="(device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2)"
+          href="/apple-launch-750x1334.png"
+        />
       </Head>
       <Layout>
         <h1>Neck</h1>
