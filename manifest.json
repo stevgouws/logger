@@ -1,15 +1,15 @@
 {
-  "name": "Logger",
-  "short_name": "Logger",
-  "start_url": "./index.js",
-  "scope": "/",
+  "name": "Stick-it Notes by Tharun",
+  "short_name": "Stick-it",
+  "start_url": "index.html",
+  "scope": "./",
   "icons": [{
-      "src": "chart.svg",
+      "src": "contract.png",
       "sizes": "192x192",
       "type": "image/png"
     },
     {
-      "src": "chart.svg",
+      "src": "contract.png",
       "sizes": "512x512",
       "type": "image/png"
     }
