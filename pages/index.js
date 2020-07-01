@@ -13,6 +13,11 @@ export default function Home() {
         <title>Logger</title>
         <link rel="icon" href="/chart.svg" />
         <link rel="manifest" href="/manifest.json" />
+        <link
+          rel="apple-touch-icon"
+          sizes="180x180"
+          href="/icon-180x180.png"
+        ></link>
       </Head>
       <Layout>
         <h1>Neck</h1>
