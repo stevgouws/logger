@@ -2,7 +2,7 @@
   "name": "Logger",
   "short_name": "Logger",
   "start_url": "./index.js",
-  "scope": "./",
+  "scope": "/",
   "icons": [{
       "src": "chart.svg",
       "sizes": "192x192",
