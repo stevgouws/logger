@@ -1,23 +1,26 @@
+import PropTypes from "prop-types";
 import styles from "./NumberGrid.styl";
-import { useState } from "react";
 
 const numbers = Array.from({ length: 100 }, (el, index) => index + 1);
 
-const NumberGrid = () => {
-  const [selectedNumber, setSelectedNumber] = useState(null);
-
+const NumberGrid = ({ selectedNumber, setSelectedNumber }) => {
   function isSelected(number) {
     return number === selectedNumber;
   }
+
+  function numberClasses(number) {
+    let classes = [styles.number];
+    if (isSelected(number)) classes.push(styles.selected);
+    return classes.join(" ");
+  }
+
   return (
     <div className={styles.numberGrid}>
       {numbers.map((number) => {
         return (
           <div
             key={number}
-            className={`${styles.number} ${
-              isSelected(number) ? styles.selected : ""
-            }`.trim()}
+            className={numberClasses(number)}
             onClick={() => setSelectedNumber(number)}
           >
             {number}
@@ -26,6 +29,11 @@ const NumberGrid = () => {
       })}
     </div>
   );
+};
+
+NumberGrid.propTypes = {
+  selectedNumber: PropTypes.number,
+  setSelectedNumber: PropTypes.func.isRequired,
 };
 
 export default NumberGrid;

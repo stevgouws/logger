@@ -1,3 +1,5 @@
+import { useState } from "react";
+import styles from "./index.styl";
 import Head from "next/head";
 import Layout from "../components/Layout";
 import Field from "../components/Field";
@@ -7,6 +9,8 @@ import NextButton from "../components/NextButton";
 import NumberGrid from "../components/NumberGrid";
 
 export default function Home() {
+  const [selectedNumber, setSelectedNumber] = useState(null);
+
   return (
     <div>
       <Head>
@@ -24,7 +28,11 @@ export default function Home() {
       </Head>
       <Layout>
         <h1>Neck</h1>
-        <NumberGrid />
+        <div className={styles.numberBanner}>{selectedNumber}</div>
+        <NumberGrid
+          selectedNumber={selectedNumber}
+          setSelectedNumber={setSelectedNumber}
+        />
         <NextButton />
         {/* <Fields>
           <Field title="Date"></Field>
