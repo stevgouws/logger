@@ -4,12 +4,12 @@
   "start_url": "./",
   "scope": "./",
   "icons": [{
-      "src": "chart.svg",
+      "src": "./chart.svg",
       "sizes": "192x192",
       "type": "image/svg+xml"
     },
     {
-      "src": "chart.svg",
+      "src": "./chart.svg",
       "sizes": "512x512",
       "type": "image/svg+xml"
     }
