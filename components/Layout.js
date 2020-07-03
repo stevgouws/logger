@@ -2,7 +2,6 @@ import NextButton from "./NextButton";
 import Head from "next/head";
 import PropTypes from "prop-types";
 import { main } from "./layout.styl";
-
 const Layout = ({ children }) => {
   return (
     <div>
