@@ -1,7 +1,7 @@
 {
   "name": "Logger",
   "short_name": "Logger",
-  "start_url": "./",
+  "start_url": "./neck",
   "scope": "./",
   "icons": [{
       "src": "/icon-120x120.png",
