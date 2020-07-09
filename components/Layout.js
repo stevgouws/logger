@@ -1,4 +1,3 @@
-import NextButton from "./NextButton";
 import Head from "next/head";
 import PropTypes from "prop-types";
 import { main } from "./layout.styl";
@@ -18,10 +17,7 @@ const Layout = ({ children }) => {
           href="/apple-launch-750x1334.png"
         />
       </Head>
-      <main className={main}>
-        {children}
-        <NextButton />
-      </main>
+      <main className={main}>{children}</main>
     </div>
   );
 };
