@@ -2,15 +2,8 @@ import PropTypes from "prop-types";
 import styles from "./NextButton.styl";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { useRef } from "react";
-const NextButton = ({ nextUrl = "" }) => {
+const NextButton = ({ nextUrl = "", save }) => {
   const router = useRouter();
-  const valuesRef = useRef({});
-  function save() {
-    console.log("save");
-    valuesRef.current[router.route.replace("/", "")] = "test";
-    console.log(valuesRef.current);
-  }
 
   return (
     <div className={styles.nextButton}>
@@ -24,6 +17,7 @@ const NextButton = ({ nextUrl = "" }) => {
 
 NextButton.propTypes = {
   nextUrl: PropTypes.string,
+  save: PropTypes.func.isRequired,
 };
 
 export default NextButton;
