@@ -8,6 +8,7 @@ import NextButton from "./NextButton";
 import { store } from "../store";
 
 const Page = ({ name, nextUrl }) => {
+  const isLastPage = nextUrl === "done";
   const [selectedNumber, setSelectedNumber] = useState(null);
   const { dispatch, state } = useContext(store);
   const router = useRouter();
@@ -15,13 +16,12 @@ const Page = ({ name, nextUrl }) => {
   console.log("state", state);
 
   function save() {
-    console.log("save");
-    console.log(name);
     dispatch({
       type: "SAVE",
       payload: {
         key: [router.route.replace("/", "")],
         value: selectedNumber,
+        persist: isLastPage,
       },
     });
   }
@@ -34,7 +34,7 @@ const Page = ({ name, nextUrl }) => {
         selectedNumber={selectedNumber}
         setSelectedNumber={setSelectedNumber}
       />
-      <NextButton nextUrl={nextUrl} save={save} />
+      <NextButton nextUrl={nextUrl} onClick={save} />
     </Layout>
   );
 };
