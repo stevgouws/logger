@@ -1,3 +1,5 @@
-export default function Done() {
-  return null;
-}
+const Done = () => {
+  return <div>Done :)</div>;
+};
+
+export default Done;
