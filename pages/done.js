@@ -1,3 +1,3 @@
 export default function Done() {
-  return <div>Done :)</div>;
+  return <div>Done</div>;
 }
