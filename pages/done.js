@@ -1,5 +1,7 @@
+import Page from "../components/Page";
+
 const Done = () => {
-  return <div>Done :)</div>;
+  return <Page name="Done">Done :)</Page>;
 };
 
 export default Done;
