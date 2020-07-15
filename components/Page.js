@@ -15,9 +15,9 @@ const Page = ({ name, nextUrl }) => {
 
   console.log("state", state);
 
-  function save() {
+  function updateState() {
     dispatch({
-      type: "SAVE",
+      type: "UPDATE",
       payload: {
         key: [router.route.replace("/", "")],
         value: selectedNumber,
@@ -34,7 +34,7 @@ const Page = ({ name, nextUrl }) => {
         selectedNumber={selectedNumber}
         setSelectedNumber={setSelectedNumber}
       />
-      <NextButton nextUrl={nextUrl} onClick={save} />
+      <NextButton nextUrl={nextUrl} onClick={updateState} />
     </Layout>
   );
 };

@@ -1,7 +1,6 @@
 import Head from "next/head";
 import PropTypes from "prop-types";
 import { main } from "./layout.styl";
-// import run from "../testDB";
 
 const Layout = ({ children }) => {
   return (
