@@ -1,5 +1,5 @@
 import Page from "../components/Page";
 
 export default function LeftHip() {
-  return <Page name="Left Hip" nextUrl="done" />;
+  return <Page name="Left Hip" nextUrl="fatigue" />;
 }

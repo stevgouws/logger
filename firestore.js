@@ -25,6 +25,7 @@ try {
   // we skip the "already exists" message which is
   // not an actual error when we're hot-reloading
   const isDev = process.env.NODE_ENV === "development";
+  console.log("isDev", isDev);
   if (isDev && !/already exists/.test(err.message)) {
     console.error("Firebase initialization error", err.stack);
   } else {
