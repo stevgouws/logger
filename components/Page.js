@@ -15,13 +15,6 @@ const Page = ({ name, nextUrl }) => {
 
   console.log("state", state);
 
-  async function getEnv() {
-    await fetch("/api/env", {
-      method: "GET",
-      headers: { "Content-Type": "application/json" },
-    });
-  }
-
   function save() {
     dispatch({
       type: "SAVE",
@@ -36,7 +29,6 @@ const Page = ({ name, nextUrl }) => {
   return (
     <Layout>
       <h1>{name}</h1>
-      <button onClick={getEnv}>env</button>
       <div className={styles.numberBanner}>{selectedNumber}</div>
       <NumberGrid
         selectedNumber={selectedNumber}
