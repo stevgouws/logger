@@ -1,10 +1,11 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import Layout from "../components/Layout";
 import { store } from "../store";
 import { useRouter } from "next/router";
 
 const Save = () => {
   const { dispatch, state } = useContext(store);
+  const [error, setError] = useState("");
   const router = useRouter();
   async function save() {
     const { ok, status, statusText } = await fetch("/api/save", {
@@ -12,8 +13,8 @@ const Save = () => {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ ...state }),
     });
-    if (!ok) throw new Error(`${status}: ${statusText}`);
-    router.push("/done");
+    if (!ok) setError(`${status}: ${statusText}`);
+    else router.push("/done");
   }
 
   return (
@@ -28,6 +29,7 @@ const Save = () => {
         })}
       </div>
       <button onClick={save}>Save</button>
+      {error}
     </Layout>
   );
 };
