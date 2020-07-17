@@ -7,10 +7,17 @@ import { todayString } from "../utils";
 const Save = () => {
   const { dispatch, state } = useContext(store);
   const [error, setError] = useState("");
+  const [busy, setBusy] = useState("");
   const router = useRouter();
 
-  async function save() {
+  function reset() {
     setError("");
+    setBusy("");
+  }
+
+  async function save() {
+    reset();
+    setBusy("Loading...");
     if (await alreadyHasDataForDate()) {
       setError("You've already logged data for today");
       return;
@@ -42,16 +49,20 @@ const Save = () => {
   return (
     <Layout>
       <div>
-        {Object.entries(state).map(([key, value]) => {
-          return (
-            <div key={key}>
-              {key}: {value}
-            </div>
-          );
-        })}
+        <h1>Summary</h1>
+        <div>
+          {Object.entries(state).map(([key, value]) => {
+            return (
+              <div key={key}>
+                {key}: {value}
+              </div>
+            );
+          })}
+        </div>
       </div>
       <button onClick={save}>Save</button>
-      {error}
+      {error || busy}
+      {/* <NextButton nextUrl={nextUrl} onClick={updateState} /> */}
     </Layout>
   );
 };
