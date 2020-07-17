@@ -13,8 +13,6 @@ const Page = ({ name, nextUrl }) => {
   const { dispatch, state } = useContext(store);
   const router = useRouter();
 
-  console.log("state", state);
-
   function updateState() {
     dispatch({
       type: "UPDATE",

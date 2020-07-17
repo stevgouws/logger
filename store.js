@@ -2,9 +2,10 @@ import PropTypes from "prop-types";
 import React, { createContext, useReducer } from "react";
 
 const initialState = {
-  neck: null,
-  thoracic: null,
-  leftHip: null,
+  neck: 0,
+  thoracic: 0,
+  leftHip: 0,
+  fatigue: 0,
 };
 const store = createContext(initialState);
 const { Provider } = store;
@@ -15,7 +16,7 @@ const StateProvider = ({ children }) => {
       case "UPDATE":
         return {
           ...state,
-          [action.payload.key]: action.payload.value,
+          [action.payload.key]: action.payload.value || 0,
         };
       default:
         throw new Error();
