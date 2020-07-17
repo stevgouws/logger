@@ -10,6 +10,7 @@ const Save = () => {
   const router = useRouter();
 
   async function save() {
+    setError("");
     if (await alreadyHasDataForDate()) {
       setError("You've already logged data for today");
       return;
@@ -29,13 +30,12 @@ const Save = () => {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ date }),
     });
-    const json = response.json();
+    const json = await response.json();
     return json.data;
   }
 
   async function alreadyHasDataForDate() {
     const records = await getDate();
-    console.log("records", records);
     return !!records;
   }
 
