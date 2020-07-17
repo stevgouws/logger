@@ -17,19 +17,10 @@ const serviceAccount = {
   client_x509_cert_url: process.env.FIREBASE_DB_CLIENT_X509_CERT_URL,
 };
 
-try {
+if (!admin.apps.length) {
   admin.initializeApp({
     credential: admin.credential.cert(serviceAccount),
   });
-} catch (err) {
-  // we skip the "already exists" message which is
-  // not an actual error when we're hot-reloading
-  const isDev = process.env.NODE_ENV === "development";
-  if (isDev && /already exists/.test(err.message)) {
-    // console.warn("Firebase initialization error", err.stack);
-  } else {
-    throw new Error(err);
-  }
 }
 
 export default admin.firestore();

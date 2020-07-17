@@ -2,7 +2,6 @@ import db from "../../firestore";
 import { COLLECTION } from "../../utils";
 
 export default async ({ body: { date } }, res) => {
-  console.log("COLLECTION", COLLECTION);
   const snapshot = await db
     .collection(COLLECTION)
     .where("date", "==", date)
