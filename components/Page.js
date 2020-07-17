@@ -9,7 +9,7 @@ import { store } from "../store";
 
 const Page = ({ name, nextUrl }) => {
   const isLastPage = nextUrl === "done";
-  const [selectedNumber, setSelectedNumber] = useState(null);
+  const [selectedNumber, setSelectedNumber] = useState(0);
   const { dispatch, state } = useContext(store);
   const router = useRouter();
 

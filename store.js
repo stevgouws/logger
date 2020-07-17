@@ -16,7 +16,7 @@ const StateProvider = ({ children }) => {
       case "UPDATE":
         return {
           ...state,
-          [action.payload.key]: action.payload.value || 0,
+          [action.payload.key]: action.payload.value,
         };
       default:
         throw new Error();
