@@ -9,8 +9,11 @@ import { store } from "../store";
 
 const Page = ({ name, nextUrl }) => {
   const isLastPage = nextUrl === "done";
-  const [selectedNumber, setSelectedNumber] = useState(0);
   const { dispatch, state } = useContext(store);
+  console.log("name", name);
+  console.log("state", state);
+  console.log("state[name]", state[name]);
+  const [selectedNumber, setSelectedNumber] = useState(state[name]);
   const router = useRouter();
 
   function updateState() {
@@ -26,8 +29,10 @@ const Page = ({ name, nextUrl }) => {
 
   return (
     <Layout>
-      <h1>{name}</h1>
-      <div className={styles.numberBanner}>{selectedNumber}</div>
+      <div className={styles.topRow}>
+        <h1 className={styles.h1}>{name}</h1>
+        <div className={styles.numberBanner}>{selectedNumber}</div>
+      </div>
       <NumberGrid
         selectedNumber={selectedNumber}
         setSelectedNumber={setSelectedNumber}
