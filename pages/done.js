@@ -1,9 +1,12 @@
 import Layout from "../components/Layout";
+import styles from "./done.styl";
 
 const Done = () => {
   return (
     <Layout>
-      <h1>DONE :)</h1>
+      <div className={styles.done}>
+        <h1>DONE :)</h1>
+      </div>
     </Layout>
   );
 };
