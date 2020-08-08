@@ -6,6 +6,7 @@ import styles from "./Page.styl";
 import Layout from "./Layout";
 import NextButton from "./NextButton";
 import { store } from "../store";
+import MainHeading from "./MainHeading";
 
 const Page = ({ name, nextUrl }) => {
   const isLastPage = nextUrl === "done";
@@ -29,10 +30,9 @@ const Page = ({ name, nextUrl }) => {
 
   return (
     <Layout>
-      <div className={styles.topRow}>
-        <h1 className={styles.h1}>{name}</h1>
+      <MainHeading name={name}>
         <div className={styles.numberBanner}>{selectedNumber}</div>
-      </div>
+      </MainHeading>
       <NumberGrid
         selectedNumber={selectedNumber}
         setSelectedNumber={setSelectedNumber}

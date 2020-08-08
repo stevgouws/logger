@@ -17,7 +17,7 @@ const NextButton = ({ nextUrl = "", onClick, primaryText }) => {
 
 NextButton.propTypes = {
   nextUrl: PropTypes.string,
-  onClick: PropTypes.func.isRequired,
+  onClick: PropTypes.func,
   primaryText: PropTypes.string,
 };
 
