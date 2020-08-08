@@ -3,14 +3,27 @@ import Layout from "../components/Layout";
 import MainHeading from "../components/MainHeading";
 import NextButton from "../components/NextButton";
 import styles from "./meds.styl";
-import { useState } from "react";
+import { useState, useContext } from "react";
+import { store } from "../store";
 
 export default function Meds() {
+  const { dispatch, state } = useContext(store);
+
+  function updateState() {
+    dispatch({
+      type: "UPDATE",
+      payload: {
+        key: "meds",
+        value: ["one", 2, 3],
+      },
+    });
+  }
+
   return (
     <Layout>
       <MainHeading name="meds" />
       <MedItems />
-      <NextButton />
+      <NextButton nextUrl="save" onClick={updateState} />
     </Layout>
   );
 }
@@ -24,7 +37,7 @@ const MedItems = () => {
     },
     {
       name: "Ibuprofen",
-      amount: 500,
+      amount: 600,
       unit: "mg",
     },
   ];

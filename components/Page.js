@@ -11,9 +11,6 @@ import MainHeading from "./MainHeading";
 const Page = ({ name, nextUrl }) => {
   const isLastPage = nextUrl === "done";
   const { dispatch, state } = useContext(store);
-  console.log("name", name);
-  console.log("state", state);
-  console.log("state[name]", state[name]);
   const [selectedNumber, setSelectedNumber] = useState(state[name]);
   const router = useRouter();
 
