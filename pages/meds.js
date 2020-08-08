@@ -3,6 +3,7 @@ import Layout from "../components/Layout";
 import MainHeading from "../components/MainHeading";
 import NextButton from "../components/NextButton";
 import styles from "./meds.styl";
+import { useState } from "react";
 
 export default function Meds() {
   return (
@@ -55,17 +56,35 @@ MedItem.propTypes = {
 };
 
 const Counter = () => {
+  const [count, setCount] = useState(0);
+
+  function decrement() {
+    if (count < 1) return;
+    setCount(count - 1);
+  }
+
+  function increment() {
+    setCount(count + 1);
+  }
+
   return (
     <div className={styles.counter}>
-      <Deviation symbol="-" /> 0 <Deviation symbol="+" />
+      <Deviation symbol="-" onClick={decrement} />
+      {count}
+      <Deviation symbol="+" onClick={increment} />
     </div>
   );
 };
 
-const Deviation = ({ symbol }) => {
-  return <span className={styles.deviation}>{symbol}</span>;
+const Deviation = ({ symbol, onClick }) => {
+  return (
+    <span className={styles.deviation} onClick={onClick}>
+      {symbol}
+    </span>
+  );
 };
 
 Deviation.propTypes = {
+  onClick: PropTypes.func.isRequired,
   symbol: PropTypes.string.isRequired,
 };
