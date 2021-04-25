@@ -6,6 +6,7 @@ const initialState = {
   thoracic: 0,
   leftHip: 0,
   fatigue: 0,
+  stress: 0,
   meds: [],
 };
 const store = createContext(initialState);
