@@ -1,6 +1,5 @@
 import PropTypes from "prop-types";
 import { useState, useContext } from "react";
-import { useRouter } from "next/router";
 import NumberGrid from "./NumberGrid";
 import styles from "./Page.styl";
 import Layout from "./Layout";
@@ -8,21 +7,30 @@ import NextButton from "./NextButton";
 import { store } from "../store";
 import MainHeading from "./MainHeading";
 
-const Page = ({ name, nextUrl }) => {
+const Page = ({ name, nextUrl, children, onClick }) => {
   const isLastPage = nextUrl === "done";
   const { dispatch, state } = useContext(store);
   const [selectedNumber, setSelectedNumber] = useState(state[name]);
-  const router = useRouter();
 
   function updateState() {
     dispatch({
       type: "UPDATE",
       payload: {
-        key: [router.route.replace("/", "")],
+        key: name,
         value: selectedNumber,
         persist: isLastPage,
       },
     });
+  }
+
+  function Content() {
+    if (children) return <div className={styles.content}>{children}</div>;
+    return (
+      <NumberGrid
+        selectedNumber={selectedNumber}
+        setSelectedNumber={setSelectedNumber}
+      />
+    );
   }
 
   return (
@@ -30,11 +38,8 @@ const Page = ({ name, nextUrl }) => {
       <MainHeading name={name}>
         <div className={styles.numberBanner}>{selectedNumber}</div>
       </MainHeading>
-      <NumberGrid
-        selectedNumber={selectedNumber}
-        setSelectedNumber={setSelectedNumber}
-      />
-      <NextButton nextUrl={nextUrl} onClick={updateState} />
+      <Content />
+      <NextButton nextUrl={nextUrl} onClick={onClick || updateState} />
     </Layout>
   );
 };
@@ -42,6 +47,8 @@ const Page = ({ name, nextUrl }) => {
 Page.propTypes = {
   name: PropTypes.string.isRequired,
   nextUrl: PropTypes.string,
+  children: PropTypes.any,
+  onClick: PropTypes.any,
 };
 
 export default Page;

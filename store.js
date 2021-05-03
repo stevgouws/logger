@@ -7,7 +7,6 @@ const initialState = {
   leftHip: 0,
   fatigue: 0,
   stress: 0,
-  // meds: [],
 };
 const store = createContext(initialState);
 const { Provider } = store;
@@ -16,6 +15,8 @@ const StateProvider = ({ children }) => {
   const [state, dispatch] = useReducer((state, action) => {
     switch (action.type) {
       case "UPDATE":
+        console.log("action.payload.key", action.payload.key);
+        console.log("action.payload.value", action.payload.value);
         return {
           ...state,
           [action.payload.key]: action.payload.value,

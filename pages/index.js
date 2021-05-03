@@ -13,7 +13,7 @@ export default function Home() {
         <button onClick={() => setNextUrl("meds")}>Log Meds</button>
         <button onClick={() => setNextUrl("neck")}>Log Stats</button>
       </div> */}
-      <NextButton nextUrl={nextUrl}></NextButton>
+      {/* <NextButton nextUrl={nextUrl}></NextButton> */}
     </Layout>
   );
 }

@@ -1,10 +1,9 @@
 import PropTypes from "prop-types";
 import { useContext, useState } from "react";
-import Layout from "../components/Layout";
+import Page from "../components/Page";
 import { store } from "../store";
 import { useRouter } from "next/router";
 import { todayString } from "../utils";
-import NextButton from "../components/NextButton";
 import styles from "./save.styl";
 
 const DataGrid = ({ state }) => (
@@ -76,14 +75,12 @@ const Save = () => {
   }
 
   return (
-    <Layout>
-      <h1>Summary</h1>
+    <Page name="summary" onClick={save}>
       <div className={styles.mid}>
         <Message text={error || busy} />
         {!busy && !error && <DataGrid state={state}></DataGrid>}
       </div>
-      <NextButton onClick={save} primaryText="Save" />
-    </Layout>
+    </Page>
   );
 };
 
