@@ -7,30 +7,13 @@ import NextButton from "./NextButton";
 import { store } from "../store";
 import MainHeading from "./MainHeading";
 
-const Page = ({ name, nextUrl, children, onClick }) => {
-  const isLastPage = nextUrl === "done";
-  const { dispatch, state } = useContext(store);
-  const [selectedNumber, setSelectedNumber] = useState(state[name]);
-
-  function updateState() {
-    dispatch({
-      type: "UPDATE",
-      payload: {
-        key: name,
-        value: selectedNumber,
-        persist: isLastPage,
-      },
-    });
-  }
+const Page = ({ name, nextUrl, children, hideNav }) => {
+  const { state } = useContext(store);
+  const selectedNumber = state[name];
 
   function Content() {
     if (children) return <div className={styles.content}>{children}</div>;
-    return (
-      <NumberGrid
-        selectedNumber={selectedNumber}
-        setSelectedNumber={setSelectedNumber}
-      />
-    );
+    return <NumberGrid nextUrl={nextUrl} name={name} />;
   }
 
   return (
@@ -39,7 +22,7 @@ const Page = ({ name, nextUrl, children, onClick }) => {
         <div className={styles.numberBanner}>{selectedNumber}</div>
       </MainHeading>
       <Content />
-      <NextButton nextUrl={nextUrl} onClick={onClick || updateState} />
+      {!hideNav && <NextButton nextUrl={nextUrl} />}
     </Layout>
   );
 };
@@ -49,6 +32,7 @@ Page.propTypes = {
   nextUrl: PropTypes.string,
   children: PropTypes.any,
   onClick: PropTypes.any,
+  hideNav: PropTypes.bool,
 };
 
 export default Page;

@@ -1,5 +1,5 @@
 import PropTypes from "prop-types";
-import { useContext, useState } from "react";
+import { useContext, useState, useEffect } from "react";
 import Page from "../components/Page";
 import { store } from "../store";
 import { useRouter } from "next/router";
@@ -74,11 +74,16 @@ const Save = () => {
     return !!records;
   }
 
+  useEffect(() => {
+    save();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
   return (
-    <Page name="summary" onClick={save}>
+    <Page name="summary" hideNav>
       <div className={styles.mid}>
+        <DataGrid state={state}></DataGrid>
         <Message text={error || busy} />
-        {!busy && !error && <DataGrid state={state}></DataGrid>}
       </div>
     </Page>
   );
